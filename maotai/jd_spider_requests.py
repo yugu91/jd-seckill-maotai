@@ -40,12 +40,15 @@ class SpiderSession:
         return session
 
     def get_headers(self):
-        return {"User-Agent": self.user_agent,
+        return {
+                "User-Agent": self.user_agent,
                 "Accept": "text/html,application/xhtml+xml,application/xml;"
                           "q=0.9,image/webp,image/apng,*/*;"
                           "q=0.8,application/signed-exchange;"
                           "v=b3",
-                "Connection": "keep-alive"}
+                # "Connection": "keep-alive"
+                "Connection": "close"
+                }
 
     def get_user_agent(self):
         return self.user_agent
